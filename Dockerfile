@@ -8,7 +8,7 @@ COPY ./requirements.txt /tmp/requirements.txt
 
 COPY ./requirements.dev.txt /tmp/requirements.dev.txt
 
-COPY ./app /app
+COPY . /app
 
 WORKDIR /app
 
