@@ -10,13 +10,13 @@ A recipe app api build in Django.
   - [Environment variables](#environment-variables)
   - [Project setup](#project-setup)
   - [Project execution](#project-execution)
-  - [Reset local environment](#reset-local-environment)
 - [Testing](#testing)
-- [Aditional project management commands](#aditional-project-management-commands)
+- [Aditional project management instructions](#aditional-project-management-instructions)
   - [Docker](#docker)
   - [Pipenv](#pipenv)
   - [Pre-commit](#pre-commit)
-- [Postgres configuration](#postgres-configuration)
+  - [Reset local environment](#reset-local-environment)
+  - [Postgres configuration](#postgres-configuration)
 
 # Development environment setup
 
@@ -56,35 +56,9 @@ docker compose up -d
 
 The project will be available in the host machine in the url http://localhost:8000.
 
-## Reset local environment
-
-Stop all containers and delete related volumes:
-
-```bash
-docker compose down -v --remove-orphans
-```
-
-Delete database files:
-
-```bash
-sudo rm -r postgres/var/
-```
-
-Up services again:
-
-```bash
-docker compose up -d
-```
-
-Notes:
-
-```POSTGRES_USER```
-
-This optional environment variable is used in conjunction with POSTGRES_PASSWORD to set a user and its password. This variable will create the specified user with superuser power and a database with the same name. If it is not specified, then the default user of postgres will be used.
-
 # Testing
 
-# Aditional project management commands
+# Aditional project management instructions
 
 ## Docker
 
@@ -133,7 +107,34 @@ Install pre-commit hooks:
 ```bash
 pre-commit install
 ```
-# Postgres configuration
+
+## Reset local environment
+
+Stop all containers and delete related volumes:
+
+```bash
+docker compose down -v --remove-orphans
+```
+
+Delete database files:
+
+```bash
+sudo rm -r postgres/var/
+```
+
+Up services again:
+
+```bash
+docker compose up -d
+```
+
+Notes:
+
+```POSTGRES_USER```
+
+This optional environment variable is used in conjunction with POSTGRES_PASSWORD to set a user and its password. This variable will create the specified user with superuser power and a database with the same name. If it is not specified, then the default user of postgres will be used.
+
+## Postgres configuration
 
 Create databases:
 
