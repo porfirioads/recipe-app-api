@@ -34,8 +34,8 @@ Create your `.env` file:
 cp .env.example .env
 ```
 
-This project is prepared to enable you using git in local and in remote 
-repositores in the docker container. Be sure you configure the env variables 
+This project is prepared to enable you using git in local and in remote
+repositores in the docker container. Be sure you configure the env variables
 `GIT_NAME`, `GIT_EMAIL` and `GIT_SSH_PRIVATE_KEY`.
 
 ## Project setup
@@ -76,22 +76,28 @@ docker compose exec <container_name> bash
 
 ## Pipenv
 
-Install a new python dependency:
+Install a python dependency:
 
 ```bash
-pipenv install <package_name==package_version>
+pipenv install package_name==package_version
 ```
 
-Install a new python dependency for development:
+Install a python dependency for development:
 
 ```bash
-pipenv install --dev <package_name==package_version>
+pipenv install --dev package_name==package_version
+```
+
+Install a python dependency between versions:
+
+```bash
+pipenv install 'package_name>=version_min,<version_max'
 ```
 
 Uninstall a python dependency:
 
 ```bash
-pipenv install <package_name>
+pipenv uninstall package_name
 ```
 
 ## Pre-commit

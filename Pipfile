@@ -9,6 +9,7 @@ djangorestframework = ">=3.12.4,<3.13"
 
 [dev-packages]
 flake8 = ">=3.9.2,<3.10"
+pre-commit = "<3.7,>=3.6.0"
 
 [requires]
 python_version = "3.9"
