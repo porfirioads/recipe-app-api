@@ -134,12 +134,6 @@ Up services again:
 docker compose up -d
 ```
 
-Notes:
-
-```POSTGRES_USER```
-
-This optional environment variable is used in conjunction with POSTGRES_PASSWORD to set a user and its password. This variable will create the specified user with superuser power and a database with the same name. If it is not specified, then the default user of postgres will be used.
-
 ## Postgres configuration
 
 Create databases:
@@ -162,3 +156,10 @@ Give permissions to the created user:
 GRANT ALL PRIVILEGES ON DATABASE recipe_app_api TO recipe_app_api;
 GRANT ALL PRIVILEGES ON DATABASE recipe_app_api_test TO recipe_app_api;
 ```
+
+Notes:
+
+This optional environment variable `POSTGRES_USER` is used in conjunction with
+`POSTGRES_PASSWORD` to set a user and its password. This variable will create
+the specified user with superuser power and a database with the same name. If
+it is not specified, then the default user of postgres will be used.
