@@ -10,7 +10,7 @@ A recipe app api build in Django.
   - [Environment variables](#environment-variables)
   - [Project setup](#project-setup)
   - [Project execution](#project-execution)
-- [Testing](#testing)
+  - [Testing](#testing)
 - [Aditional project management instructions](#aditional-project-management-instructions)
   - [Docker](#docker)
   - [Pipenv](#pipenv)
@@ -56,7 +56,7 @@ docker compose up -d
 
 The project will be available in the host machine in the url http://localhost:8000.
 
-# Testing
+## Testing
 
 # Aditional project management instructions
 
