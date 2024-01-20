@@ -34,6 +34,10 @@ Create your `.env` file:
 cp .env.example .env
 ```
 
+This project is prepared to enable you using git in local and in remote 
+repositores in the docker container. Be sure you configure the env variables 
+`GIT_NAME`, `GIT_EMAIL` and `GIT_SSH_PRIVATE_KEY`.
+
 ## Project setup
 
 Build the docker stack:
@@ -50,19 +54,7 @@ Create the docker containers and run them:
 docker compose up -d
 ```
 
-Enter in the django project container terminal:
-
-```bash
-docker compose exec api bash
-```
-
-Inside the container, activate the virtualenv:
-
-```bash
-pipenv shell
-```
-
-The project is available in the host machine in the url http://localhost:8000.
+The project will be available in the host machine in the url http://localhost:8000.
 
 ## Reset local environment
 
