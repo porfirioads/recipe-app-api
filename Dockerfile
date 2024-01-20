@@ -46,7 +46,7 @@ RUN git config --global user.name "${GIT_NAME}"
 RUN git config --global user.email "${GIT_EMAIL}"
 
 # Copies the private key for repository push and pull.
-RUN mkdir ~/.ssh && echo "${GIT_SSH_PRIVATE_KEY}" > ~/.ssh/id_rsa
+RUN mkdir ~/.ssh && echo -e "${GIT_SSH_PRIVATE_KEY}" > ~/.ssh/id_rsa
 
 # Sets configuration that ignores permissions in files.
 RUN git config --global core.fileMode false
