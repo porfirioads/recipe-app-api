@@ -9,9 +9,36 @@ services:
         - GIT_NAME=${GIT_NAME}
         - GIT_EMAIL=${GIT_EMAIL}
         - GIT_SSH_PRIVATE_KEY=${GIT_SSH_PRIVATE_KEY}
+    restart: on-failure
+    environment:
+      - DB_NAME=${POSTGRES_DB}
+      - DB_HOST=${POSTGRES_DB}
+      - DB_USER=${POSTGRES_USER}
+      - DB_PASSWORD=${POSTGRES_PASSWORD}
     ports:
       - "8000:8000"
     volumes:
       - ./:/app
     command: >
       sh -c "python manage.py runserver 0.0.0.0:8000"
+    networks:
+      - recipe-app-api
+
+  postgres:
+    image: postgres:14.2-alpine
+    restart: on-failure
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    ports:
+      - ${POSTGRES_PORT}:${POSTGRES_PORT}
+    volumes:
+      - ./data:/var/lib/postgresql/data
+      - ./scripts/create-test-database.sh:/docker-entrypoint-initdb.d/create-test-database.sh
+    networks:
+      - recipe-app-api
+
+networks:
+  recipe-app-api:
+    driver: bridge

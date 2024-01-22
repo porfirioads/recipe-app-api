@@ -46,6 +46,12 @@ Build the docker stack:
 docker compose build
 ```
 
+Give execution permission to entrypoint script:
+
+```bash
+chmod +x postgres/scripts/create-test-database.sh
+```
+
 ## Project execution
 
 Create the docker containers and run them:
