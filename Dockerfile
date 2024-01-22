@@ -48,6 +48,7 @@ RUN git config --global user.email "${GIT_EMAIL}"
 # Copies the private key for repository push and pull.
 RUN mkdir ~/.ssh && echo -e "${GIT_SSH_PRIVATE_KEY}" > ~/.ssh/id_rsa
 
+# Sets correct permission for ssh private key
 RUN chmod 400 ~/.ssh/id_rsa
 
 # Sets configuration that ignores permissions in files.
