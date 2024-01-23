@@ -13,10 +13,11 @@ A recipe app api build in Django.
   - [Testing](#testing)
 - [Aditional project management instructions](#aditional-project-management-instructions)
   - [Docker](#docker)
-  - [Pipenv](#pipenv)
   - [Pre-commit](#pre-commit)
   - [Reset local environment](#reset-local-environment)
   - [Postgres configuration](#postgres-configuration)
+- [Django commands](#django-commands)
+- [Pipenv commands](#pipenv-commands)
 
 # Development environment setup
 
@@ -78,32 +79,6 @@ Enter on a container terminal:
 
 ```bash
 docker compose exec <container_name> bash
-```
-
-## Pipenv
-
-Install a python dependency:
-
-```bash
-pipenv install package_name==package_version
-```
-
-Install a python dependency for development:
-
-```bash
-pipenv install --dev package_name==package_version
-```
-
-Install a python dependency between versions:
-
-```bash
-pipenv install 'package_name>=version_min,<version_max'
-```
-
-Uninstall a python dependency:
-
-```bash
-pipenv uninstall package_name
 ```
 
 ## Pre-commit
@@ -169,3 +144,37 @@ This optional environment variable `POSTGRES_USER` is used in conjunction with
 `POSTGRES_PASSWORD` to set a user and its password. This variable will create
 the specified user with superuser power and a database with the same name. If
 it is not specified, then the default user of postgres will be used.
+
+# Django commands
+
+Create a new app:
+
+```bash
+python manage.py startapp <APP_NAME>
+```
+
+# Pipenv commands
+
+Install a python dependency:
+
+```bash
+pipenv install package_name==package_version
+```
+
+Install a python dependency for development:
+
+```bash
+pipenv install --dev package_name==package_version
+```
+
+Install a python dependency between versions:
+
+```bash
+pipenv install 'package_name>=version_min,<version_max'
+```
+
+Uninstall a python dependency:
+
+```bash
+pipenv uninstall package_name
+```
