@@ -153,6 +153,12 @@ Create a new app:
 python manage.py startapp <APP_NAME>
 ```
 
+Execute a custom command:
+
+```bash
+python manage.py wait_for_db
+```
+
 # Pipenv commands
 
 Install a python dependency:

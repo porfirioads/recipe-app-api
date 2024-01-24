@@ -10,7 +10,8 @@ psycopg2-binary = ">=2.8.6<2.9"
 
 [dev-packages]
 flake8 = ">=3.9.2,<3.10"
-pre-commit = "<3.7,>=3.6.0"
+pre-commit = ">=3.6.0,<3.7"
+autopep8 = ">=1.5.7"
 
 [requires]
 python_version = "3.9"
