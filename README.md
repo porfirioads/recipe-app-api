@@ -159,6 +159,18 @@ Execute a custom command:
 python manage.py wait_for_db
 ```
 
+Create migrations:
+
+```bash
+python manage.py makemigrations
+```
+
+Apply migrations:
+
+```bash
+python manage.py migrate
+```
+
 # Pipenv commands
 
 Install a python dependency:
