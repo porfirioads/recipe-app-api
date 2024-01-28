@@ -171,6 +171,12 @@ Apply migrations:
 python manage.py migrate
 ```
 
+Create a superuser:
+
+```bash
+python manage.py createsuperuser
+```
+
 # Pipenv commands
 
 Install a python dependency:
