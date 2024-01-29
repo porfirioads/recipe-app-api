@@ -16,8 +16,8 @@ A recipe app api build in Django.
   - [Pre-commit](#pre-commit)
   - [Reset local environment](#reset-local-environment)
   - [Postgres configuration](#postgres-configuration)
-- [Django commands](#django-commands)
-- [Pipenv commands](#pipenv-commands)
+  - [Django commands](#django-commands)
+  - [Pipenv commands](#pipenv-commands)
 
 # Development environment setup
 
@@ -145,7 +145,7 @@ This optional environment variable `POSTGRES_USER` is used in conjunction with
 the specified user with superuser power and a database with the same name. If
 it is not specified, then the default user of postgres will be used.
 
-# Django commands
+## Django commands
 
 Create a new app:
 
@@ -177,7 +177,7 @@ Create a superuser:
 python manage.py createsuperuser
 ```
 
-# Pipenv commands
+## Pipenv commands
 
 Install a python dependency:
 
