@@ -18,6 +18,7 @@ A recipe app api build in Django.
   - [Postgres configuration](#postgres-configuration)
   - [Django commands](#django-commands)
   - [Pipenv commands](#pipenv-commands)
+- [Django project with apps subfolder](#django-project-with-apps-subfolder)
 
 # Development environment setup
 
@@ -201,4 +202,57 @@ Uninstall a python dependency:
 
 ```bash
 pipenv uninstall package_name
+```
+
+# Django project with apps subfolder
+
+Create `apps` sub folder:
+
+```bash
+mkdir apps
+touch apps/__init__.py
+```
+
+Add app in `apps` sub folder:
+
+```bash
+mkdir apps/myapp
+python manage.py startapp myapp  apps/myapp
+```
+
+Update `apps.py` in `apps/myapp` to have the name include `apps.` as shown
+below:
+
+```python
+class MyappConfig(AppConfig):
+    # optional, add default auto field
+    default_auto_field = 'django.db.models.BigAutoField'
+    # set location of app using sub dir
+    name = 'apps.myapp'
+    # optional, add name of app
+    verbose_name = 'My App Verbose Name'
+```
+
+Install app like this:
+
+```python
+INSTALLED_APPS = (
+    ...
+    'apps.myapp',
+)
+```
+
+Create urls like this:
+
+```python
+urlpatterns = patterns('',
+  url(r'^myapp', include('apps.myapp.urls')),
+  ...
+)
+```
+
+Make migrations like this:
+
+```bash
+makemigrations myapp --pythonpath='apps'
 ```
