@@ -217,7 +217,7 @@ Add app in `apps` sub folder:
 
 ```bash
 mkdir apps/myapp
-python manage.py startapp myapp  apps/myapp
+python manage.py startapp myapp apps/myapp
 ```
 
 Update `apps.py` in `apps/myapp` to have the name include `apps.` as shown
