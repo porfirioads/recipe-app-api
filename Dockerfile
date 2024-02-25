@@ -20,10 +20,13 @@ RUN apt-get update && \
     apt install -y vim sqlite
 
 # Installs dependencies for image handling
-
 RUN apt-get update && apt-get install -y \
     libjpeg-dev \
     zlib1g-dev
+
+# Creates directories for static files.
+RUN mkdir -p /vol/web/media
+RUN mkdir -p /vol/web/static
 
 # -------------------------
 # GIT CONFIGURATION
