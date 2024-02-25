@@ -19,6 +19,12 @@ SHELL ["/bin/bash", "-c"]
 RUN apt-get update && \
     apt install -y vim sqlite
 
+# Installs dependencies for image handling
+
+RUN apt-get update && apt-get install -y \
+    libjpeg-dev \
+    zlib1g-dev
+
 # -------------------------
 # GIT CONFIGURATION
 # -------------------------
