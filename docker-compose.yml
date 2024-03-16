@@ -9,6 +9,7 @@ services:
         - GIT_NAME=${GIT_NAME}
         - GIT_EMAIL=${GIT_EMAIL}
         - GIT_SSH_PRIVATE_KEY=${GIT_SSH_PRIVATE_KEY}
+    platform: linux/amd64
     restart: on-failure
     environment:
       - DB_HOST=${DB_HOST}

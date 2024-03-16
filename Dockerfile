@@ -24,7 +24,7 @@ RUN apt-get update && apt-get install -y \
     libjpeg-dev \
     zlib1g-dev
 
-RUN apt-get install -y linux-headers-5.10-arm64
+RUN apt-get install -y linux-headers-5.10-amd
 
 # Creates directories for static files.
 RUN mkdir -p /vol/web/media
