@@ -4,31 +4,24 @@ services:
   api:
     build:
       context: .
-      dockerfile: Dockerfile
-      args:
-        - GIT_NAME=${GIT_NAME}
-        - GIT_EMAIL=${GIT_EMAIL}
-        - GIT_SSH_PRIVATE_KEY=${GIT_SSH_PRIVATE_KEY}
-    restart: on-failure
+    restart: always
+    volumes:
+      - ./:/app
+      - static-data:/vol/web
     environment:
       - DB_HOST=${DB_HOST}
       - DB_NAME=${DB_NAME}
       - DB_USER=${DB_USER}
       - DB_PASSWORD=${DB_PASSWORD}
-      - DEBUG=1
-    ports:
-      - "8000:8000"
-    volumes:
-      - ./:/app
-      - ./web:/vol/web
+      - SECRET_KEY=${DJANGO_SECRET_KEY}
+      - ALLOWED_HOSTS=${DJANGO_ALLOWED_HOSTS}
     depends_on:
       - postgres
     command: >
       sh -c "python manage.py wait_for_db &&
+             python manage.py collectstatic --noinput &&
              python manage.py migrate &&
-             python manage.py runserver 0.0.0.0:8000"
-    networks:
-      - recipe-app-api
+             uwsgi --socket :9000 --workers 4 --master --enable-threads --module recipe_app_api.wsgi"
 
   postgres:
     image: postgres:14.2-alpine
@@ -42,9 +35,18 @@ services:
     volumes:
       - ./data:/var/lib/postgresql/data
       - ./scripts/create-test-database.sh:/docker-entrypoint-initdb.d/create-test-database.sh
-    networks:
-      - recipe-app-api
 
-networks:
-  recipe-app-api:
-    driver: bridge
+  proxy:
+    build:
+      context: ./proxy
+    restart: always
+    depends_on:
+      - api
+    ports:
+      - 80:8000
+    volumes:
+      - static-data:/vol/static
+
+volumes:
+  postgres-data:
+  static-data:
