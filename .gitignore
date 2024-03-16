@@ -162,3 +162,6 @@ cython_debug/
 # Volumes
 data/*
 web*
+
+# MACOS
+.DS_Store
